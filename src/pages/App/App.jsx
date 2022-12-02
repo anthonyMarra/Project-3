@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { getUser } from '../../utilities/users-service';
 import AuthPage from '../AuthPage/AuthPage';
@@ -12,7 +12,7 @@ import ColorPicker from '../ColorPicker/ColorPicker';
 function App() {
   const [col, setCol] = useState(16);
   const [row, setRow] = useState(16);
-  const [penColor, setPenColor] = useState("white")
+  const [penColor, setPenColor] = useState("blue")
   let boardProto = []
   for (let y = 0; y < row; y++) {
     boardProto.push([])
@@ -20,12 +20,14 @@ function App() {
       boardProto[y].push("white")
     }
   }
-  const [board, setBoard] = useState(boardProto);
+  const [board, setBoard] = useEffect(boardProto);
+  // setBoard(boardProto)
+  console.log("refreshed app.js")
 
   return (
     <>
-      <Board board={board} penColor={penColor} />
-      <ColorPicker setPenColor={setPenColor} />
+      <Board board={board} penColor={penColor} setBoard={setBoard} />
+      <ColorPicker setPenColor={setPenColor} setCol={setCol} setRow={setRow} />
     </>
   )
 

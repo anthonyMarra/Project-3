@@ -1,7 +1,6 @@
-# Getting Started with Create React App
+# ERD
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
+Link to ERD: https://lucid.app/lucidchart/195e0f90-308f-4b0b-874c-733317d91780/edit?viewport_loc=-229%2C248%2C1350%2C616%2C0_0&invitationId=inv_97199d04-6f93-4f23-bae8-2be2b7e4b5c4
 ## Available Scripts
 
 In the project directory, you can run:
