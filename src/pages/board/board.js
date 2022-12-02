@@ -18,7 +18,6 @@ export default function Board({ board, penColor, setBoard }) {
     } else {
         //set box height and width to col
     }
-
     return (
         <>
             <div className="Board">
@@ -42,7 +41,6 @@ function erase(box) {
     const currentColor = box.target.className.split(' ').pop();
     box.target.classList.remove(currentColor)
     box.target.className = box.target.className + " white"
-    console.log(box.target.className)
     updateBoard(box, "white")
 }
 

@@ -20,7 +20,7 @@ function App() {
       boardProto[y].push("white")
     }
   }
-  const [board, setBoard] = useEffect(boardProto);
+  const [board, setBoard] = useState(boardProto);
   // setBoard(boardProto)
   console.log("refreshed app.js")
 

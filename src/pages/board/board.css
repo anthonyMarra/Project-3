@@ -1,7 +1,6 @@
 .box {
     width: 30px;
     height: 30px;
-    border: 1px solid black;
     display: inline-block;
     margin: -2px;
     /* background-color: #EFCB68; */

@@ -1,19 +1,30 @@
-let chosePenColor = "white"
-let choseRow;
-let choseCol;
 
 export default function ColorPicker({ setPenColor, setCol, setRow }) {
-    choseCol = setCol
-    choseRow = setRow
-    chosePenColor = setPenColor
+    function handleColorChange(evt) {
+        setPenColor(evt.target.value)
+    }
+    function handleColChange(evt) {
+        console.log(evt.target.value)
+        setCol(evt.target.value)
+    }
+    function handleRowChange(evt) {
+        console.log(evt.target.value)
+        setRow(evt.target.value)
+    }
+    function handleGridChange(evt) {
+        evt.preventDefault();
+        console.log(evt.target.width)
+
+    }
     return (
         //make suer that you put ignore defualt on here so it doenst mess stuff up when ever you submit
         <>
-            <form>
+            <form onSubmit={handleGridChange}>
                 <label>Board Width</label>
-                <input onChange={handleColChange}>16</input>
+                <input name="width" />
                 <label>Board Height</label>
-                <input onChange={handleRowChange}>16</input>
+                <input name="height" />
+                <button type="submit">Change the Board Dimentions</button>
                 <select onChange={handleColorChange}>
                     <option value="blue">blue</option>
                     <option value="red">red</option>
@@ -25,14 +36,3 @@ export default function ColorPicker({ setPenColor, setCol, setRow }) {
     )
 }
 
-function handleColorChange(evt) {
-    chosePenColor(evt.target.value)
-}
-function handleColChange(evt) {
-    console.log(evt.target.value)
-    choseCol(evt.target.value)
-}
-function handleRowChange(evt) {
-    console.log(evt.target.value)
-    choseRow(evt.target.value)
-}
