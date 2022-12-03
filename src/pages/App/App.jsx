@@ -25,6 +25,8 @@ function App() {
   }
   console.log(boardProto)
   const [board, setBoard] = useState(boardProto);
+  setBoard(boardProto)
+  //useEffect add boardPronto into array at the end
   console.log(board)
 
 

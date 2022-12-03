@@ -33,8 +33,13 @@ export default function ColorPicker({ setPenColor, setCol, setRow }) {
                 <select onChange={handleColorChange}>
                     <option value="blue">blue</option>
                     <option value="red">red</option>
-                    <option value="green">green</option>
                     <option value="yellow">yellow</option>
+                    <option value="green">green</option>
+                    <option value="purple">purple</option>
+                    <option value="orange">orange</option>
+                    <option value="white">white</option>
+                    <option value="black">black</option>
+
                 </select>
             </form>
         </>
