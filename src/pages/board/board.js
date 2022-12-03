@@ -27,7 +27,7 @@ export default function Board({ board, penColor, setBoard }) {
                         {row.map(function (color, x) {
                             x = x + 1
                             return (
-                                <div className={`${y + "y"} ${"x" + x + "x"} box ${color}`} onDoubleClick={erase} onMouseOver={paint} onMouseDown={paintSquare}></div>
+                                <div key={`${y + " " + x}`} className={`${y + "y"} ${"x" + x + "x"} box ${color}`} onDoubleClick={erase} onMouseOver={paint} onMouseDown={paintSquare}></div>
                             )
                         })}
                     </div>)

@@ -1,19 +1,24 @@
+import { useState } from "react"
+
 
 export default function ColorPicker({ setPenColor, setCol, setRow }) {
+    const [newCol, setNewCol] = useState(16)
+    const [newRow, setNewRow] = useState(16)
     function handleColorChange(evt) {
         setPenColor(evt.target.value)
     }
-    function handleColChange(evt) {
-        console.log(evt.target.value)
-        setCol(evt.target.value)
+    function handleColChange(event) {
+        setNewCol(event.target.value)
     }
-    function handleRowChange(evt) {
-        console.log(evt.target.value)
-        setRow(evt.target.value)
+    function handleRowChange(event) {
+        setNewRow(event.target.value)
     }
     function handleGridChange(evt) {
         evt.preventDefault();
-        console.log(evt.target.width)
+        console.log(evt.target.width.value)
+        console.log(newCol)
+        setCol(newCol)
+        setRow(newRow)
 
     }
     return (
@@ -21,9 +26,9 @@ export default function ColorPicker({ setPenColor, setCol, setRow }) {
         <>
             <form onSubmit={handleGridChange}>
                 <label>Board Width</label>
-                <input name="width" />
+                <input name="width" value={newCol} onChange={handleColChange} />
                 <label>Board Height</label>
-                <input name="height" />
+                <input name="height" value={newRow} onChange={handleRowChange} />
                 <button type="submit">Change the Board Dimentions</button>
                 <select onChange={handleColorChange}>
                     <option value="blue">blue</option>
