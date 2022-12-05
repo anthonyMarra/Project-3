@@ -24,7 +24,7 @@ function App() {
   const [board, setBoard] = useState(boardProto);
   useEffect(() => {
     setBoard(boardProto)
-  }, boardProto)
+  }, [col, row])
   console.log(board)
 
   return (
