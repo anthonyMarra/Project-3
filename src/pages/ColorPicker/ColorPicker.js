@@ -1,9 +1,9 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 
-export default function ColorPicker({ setPenColor, setCol, setRow }) {
-    const [newCol, setNewCol] = useState(16)
-    const [newRow, setNewRow] = useState(16)
+export default function ColorPicker({ setPenColor, setCol, setRow, col, row }) {
+    const [newCol, setNewCol] = useState(col)
+    const [newRow, setNewRow] = useState(row)
     function handleColorChange(evt) {
         setPenColor(evt.target.value)
     }
@@ -15,14 +15,18 @@ export default function ColorPicker({ setPenColor, setCol, setRow }) {
     }
     function handleGridChange(evt) {
         evt.preventDefault();
-        console.log(evt.target.width.value)
-        console.log(newCol)
-        setCol(newCol)
-        setRow(newRow)
+        if (col != newCol) {
+            setCol(newCol)
+        }
+        if (row != newRow) {
+            setRow(newRow)
+        }
+        console.log("running handle Grid CHanfe function")
 
+        //console.log(window.innerWidth)
+        //set this to a variable to see the users current window size
     }
     return (
-        //make suer that you put ignore defualt on here so it doenst mess stuff up when ever you submit
         <>
             <form onSubmit={handleGridChange}>
                 <label>Board Width</label>
@@ -39,7 +43,6 @@ export default function ColorPicker({ setPenColor, setCol, setRow }) {
                     <option value="orange">orange</option>
                     <option value="white">white</option>
                     <option value="black">black</option>
-
                 </select>
             </form>
         </>

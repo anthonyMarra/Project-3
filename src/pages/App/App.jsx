@@ -13,8 +13,6 @@ function App() {
   console.log("refreshed app.js")
   const [col, setCol] = useState(16);
   const [row, setRow] = useState(16);
-  console.log(row)
-  console.log(col)
   const [penColor, setPenColor] = useState("blue")
   let boardProto = []
   for (let y = 0; y < row; y++) {
@@ -23,19 +21,16 @@ function App() {
       boardProto[y].push("white")
     }
   }
-  console.log(boardProto)
   const [board, setBoard] = useState(boardProto);
-  setBoard(boardProto)
-  //useEffect add boardPronto into array at the end
+  useEffect(() => {
+    setBoard(boardProto)
+  }, boardProto)
   console.log(board)
-
-
-
 
   return (
     <>
       <Board board={board} penColor={penColor} setBoard={setBoard} />
-      <ColorPicker setPenColor={setPenColor} setCol={setCol} setRow={setRow} />
+      <ColorPicker setPenColor={setPenColor} setCol={setCol} setRow={setRow} col={col} row={row} />
     </>
   )
 
