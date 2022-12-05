@@ -21,7 +21,6 @@ export default function ColorPicker({ setPenColor, setCol, setRow, col, row }) {
         if (row != newRow) {
             setRow(newRow)
         }
-        console.log("running handle Grid CHanfe function")
 
         //console.log(window.innerWidth)
         //set this to a variable to see the users current window size

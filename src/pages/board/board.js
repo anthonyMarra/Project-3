@@ -11,7 +11,7 @@ export default function Board({ board, penColor, setBoard }) {
     //     //set box height and width to row
     // } else {
     //     //set box height and width to col
-    // }
+    // } https://www.freecodecamp.org/news/how-to-style-react-apps-with-css/
 
     function updateBoard(box, color) {
         let y = box.target.className.split('y')
@@ -53,7 +53,6 @@ export default function Board({ board, penColor, setBoard }) {
             <div className="Board">
                 {board.map(function (row, y) {
                     y = y + 1
-                    console.log(row)
                     return (<div key={y}>
                         {row.map(function (color, x) {
                             x = x + 1

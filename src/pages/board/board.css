@@ -5,7 +5,10 @@
     margin: -2px;
     text-align: center;
     vertical-align: middle;
-    /* background-color: #EFCB68; */
+    /* background-color: #EFCB68; 
+    https://www.freecodecamp.org/news/how-to-style-react-apps-with-css/
+    use link for working on px size
+    */
 }
 
 

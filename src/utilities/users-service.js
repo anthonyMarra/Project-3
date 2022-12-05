@@ -22,7 +22,7 @@ export function getToken() {
   const payload = JSON.parse(atob(token.split('.')[1]));
   if (payload.exp < Date.now() / 1000) {
     // Token has expired
-    localStorage.removeItem('token');
+    // localStorage.removeItem('token');
     return null;
   }
   return token;

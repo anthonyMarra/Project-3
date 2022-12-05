@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import * as usersService from '../../utilities/users-service';
+import { useNavigate } from 'react-router-dom';
 
 export default function LoginForm({ setUser }) {
   const [credentials, setCredentials] = useState({
@@ -7,6 +8,10 @@ export default function LoginForm({ setUser }) {
     password: ''
   });
   const [error, setError] = useState('');
+
+  function RedirectHome() {
+    // useNavigate("/")
+  }
 
   function handleChange(evt) {
     setCredentials({ ...credentials, [evt.target.name]: evt.target.value });
@@ -35,7 +40,7 @@ export default function LoginForm({ setUser }) {
           <input type="text" name="email" value={credentials.email} onChange={handleChange} required />
           <label>Password</label>
           <input type="password" name="password" value={credentials.password} onChange={handleChange} required />
-          <button type="submit">LOG IN</button>
+          <button type="submit" onClick={RedirectHome}>LOG IN</button>
         </form>
       </div>
       <p className="error-message">&nbsp;{error}</p>
