@@ -27,12 +27,23 @@ function App() {
   useEffect(() => {
     setBoard(boardProto)
   }, [col, row])
-
+  /*LOOK UP PROJECT 2 HOW YOU DID YOUR CRUD THERE
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  */
   return (
     <>
       <NavBar user={user} setUser={setUser} />
       <Routes>
-        <Route path="/draw" element={<><Board board={board} penColor={penColor} setBoard={setBoard} /><ColorPicker setPenColor={setPenColor} setCol={setCol} setRow={setRow} col={col} row={row} /></>} />
+        <Route path="/draw" element={<><Board board={board} penColor={penColor} setBoard={setBoard} /><ColorPicker setPenColor={setPenColor} setCol={setCol} setRow={setRow} col={col} row={row} user={user} /></>} />
         <Route path="/login" element={<AuthPage setUser={setUser} />} />
         <Route path="/" element={<ArtBrowse />} />
         <Route path="/*" element={<ArtBrowse />} />
