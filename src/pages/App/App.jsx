@@ -16,6 +16,7 @@ function App() {
   const [col, setCol] = useState(16);
   const [row, setRow] = useState(16);
   const [penColor, setPenColor] = useState("blue")
+  const [art, setArt] = useState([])
   let boardProto = []
   for (let y = 0; y < row; y++) {
     boardProto.push([])
@@ -43,7 +44,7 @@ function App() {
     <>
       <NavBar user={user} setUser={setUser} />
       <Routes>
-        <Route path="/draw" element={<><Board board={board} penColor={penColor} setBoard={setBoard} /><ColorPicker setPenColor={setPenColor} setCol={setCol} setRow={setRow} col={col} row={row} user={user} /></>} />
+        <Route path="/draw" element={<><Board board={board} penColor={penColor} setBoard={setBoard} /><ColorPicker setPenColor={setPenColor} setCol={setCol} setRow={setRow} col={col} row={row} user={user} setArt={setArt} /></>} />
         <Route path="/login" element={<AuthPage setUser={setUser} />} />
         <Route path="/" element={<ArtBrowse />} />
         <Route path="/*" element={<ArtBrowse />} />

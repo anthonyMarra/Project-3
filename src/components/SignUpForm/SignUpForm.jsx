@@ -15,7 +15,6 @@ export default class SignUpForm extends Component {
     evt.preventDefault();
     try {
       const formData = { ...this.state };
-      console.log(...this.state)
       delete formData.confirm;
       delete formData.error;
       // The promise returned by the signUp service method
@@ -24,6 +23,8 @@ export default class SignUpForm extends Component {
       const user = await signUp(formData);
       // Update user state with user
       this.props.setUser(user);
+      // window.location = "/"
+      // return res.redirect("/")
     } catch {
       // Invalid signup
       this.setState({

@@ -6,6 +6,7 @@ const BASE_URL = '/api/users';
 export async function signUp(userData) {
   // Fetch uses an options object as a second arg to make
   // requests other than GET and/or send data and/or set headers
+  console.log(userData)
   const res = await fetch(BASE_URL, {
     method: 'POST',
     // MIME type of application/json
