@@ -3,7 +3,7 @@ import CreateArt from "./CreateArt";
 import './ColorPicker.css';
 
 
-export default function ColorPicker({ setPenColor, setCol, setRow, col, row, user, setArt }) {
+export default function ColorPicker({ setPenColor, setCol, setRow, col, row, user, board }) {
     const [newCol, setNewCol] = useState(col)
     const [newRow, setNewRow] = useState(row)
     function handleColorChange(evt) {
@@ -47,7 +47,7 @@ export default function ColorPicker({ setPenColor, setCol, setRow, col, row, use
                     <option value="black">black</option>
                 </select>
             </form>
-            <CreateArt setArt={setArt} user={user} />
+            <CreateArt user={user} board={board} />
         </>
     )
 }

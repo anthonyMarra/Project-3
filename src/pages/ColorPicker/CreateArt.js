@@ -13,12 +13,13 @@ export default class CreateArt extends Component {
             const formData = {
                 artistID: this.props.user._id,
                 title: this.state.title,
-                art: ["white"],
+                art: this.props.board,
             }
             console.log(formData)
             // const art = await signUp(formData)
             // continue watching youtube video to see how he uploads to database, cause it's hard to copy the SignUpForm
             this.props.setArt(formData)
+            console.log("hypothetically created in database")
             // window.location = "/"
         } catch {
             this.setState({
@@ -28,19 +29,19 @@ export default class CreateArt extends Component {
 
     }
     handleChange = (evt) => {
+        console.log(evt.target.value)
+        console.log(evt.target.name)
         this.setState({
             [evt.target.name]: evt.target.value,
             error: ''
         });
     }
-
-
     render() {
         return (
             <>
-                <form autoComplete="off" onSubmit={this.handleSubmit}>
+                <form autoComplete="off" onSubmit={this.handleSubmit} method="POST" action="/api/art/">
                     <label>Art Piece Title:</label>
-                    <input type="text" title="title" value={this.state.name} onChange={this.handleChange} required />
+                    <input type="text" name="title" value={this.state.name} onChange={this.handleChange} required />
                     <button type="submit">Post Your Art Piece</button>
                 </form>
             </>
