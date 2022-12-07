@@ -28,16 +28,6 @@ function App() {
     setBoard(boardProto)
   }, [col, row])
   /*LOOK UP PROJECT 2 HOW YOU DID YOUR CRUD THERE
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   */
   return (
     <>
@@ -51,15 +41,5 @@ function App() {
     </>
   )
 }
-
-// function App() {
-//   
-
-//   return (
-//     <main className="App">
-//       
-//     </main>
-//   );
-// }
 
 export default App;

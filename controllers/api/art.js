@@ -17,15 +17,10 @@ module.exports = {
 //contracts
 function create(req, res, next) {
     console.log("Started adding art to database")
-    const art = new Art(req.body)
+    const art = new Art({ artistID: req.body.artistID, title: req.body.title })
     console.log(req.body)
-    art.artistID = req.user
-    console.log(req.body.user)
-    console.log(req.user)
-    if (!art.art) {
-        art.art = ["white"]
-    }
-
+    art.artistID = req.body.artistID
+    art.art = req.body.art
     art.save()
         .then(function (art) {
             console.log(art)

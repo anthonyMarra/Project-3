@@ -1,12 +1,12 @@
 import { Component } from "react";
-import { signUp } from '../../utilities/users-service';
+import { postArt } from '../../utilities/art-service';
 
 
 export default class CreateArt extends Component {
     state = {
         artistID: "",
         title: "",
-        art: ["white"],
+        // art: ["white"],
     }
     handleSubmit = async (evt) => {
         evt.preventDefault()
@@ -17,10 +17,7 @@ export default class CreateArt extends Component {
                 art: this.props.board,
             }
             console.log(formData)
-            // const art = await signUp(formData)
-            // continue watching youtube video to see how he uploads to database, cause it's hard to copy the SignUpForm
-            const art = await signUp(formData);
-            // LINE 21 IS THE LINE THAT IS BROKEN
+            const art = await postArt(formData);
             console.log("hypothetically created in database")
             // window.location = "/"
         } catch {
@@ -28,7 +25,6 @@ export default class CreateArt extends Component {
                 error: "Submitting Art Failed, Try Again"
             })
         }
-
     }
     handleChange = (evt) => {
         this.setState({
@@ -39,7 +35,8 @@ export default class CreateArt extends Component {
     render() {
         return (
             <>
-                <form autoComplete="off" onSubmit={this.handleSubmit} method="POST" action="/api/art/">
+                <form autoComplete="off" onSubmit={this.handleSubmit} method="POST" action="/api/art">
+                    {/* slash in the above action ?*/}
                     <label>Art Piece Title:</label>
                     <input type="text" name="title" value={this.state.name} onChange={this.handleChange} required />
                     <button type="submit">Post Your Art Piece</button>
