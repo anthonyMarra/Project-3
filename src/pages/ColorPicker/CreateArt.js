@@ -1,4 +1,5 @@
 import { Component } from "react";
+import { signUp } from '../../utilities/users-service';
 
 
 export default class CreateArt extends Component {
@@ -18,7 +19,8 @@ export default class CreateArt extends Component {
             console.log(formData)
             // const art = await signUp(formData)
             // continue watching youtube video to see how he uploads to database, cause it's hard to copy the SignUpForm
-            this.props.setArt(formData)
+            const art = await signUp(formData);
+            // LINE 21 IS THE LINE THAT IS BROKEN
             console.log("hypothetically created in database")
             // window.location = "/"
         } catch {
@@ -29,8 +31,6 @@ export default class CreateArt extends Component {
 
     }
     handleChange = (evt) => {
-        console.log(evt.target.value)
-        console.log(evt.target.name)
         this.setState({
             [evt.target.name]: evt.target.value,
             error: ''

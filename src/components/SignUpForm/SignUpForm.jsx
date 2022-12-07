@@ -23,7 +23,7 @@ export default class SignUpForm extends Component {
       const user = await signUp(formData);
       // Update user state with user
       this.props.setUser(user);
-      // window.location = "/"
+      window.location = "/"
       // return res.redirect("/")
     } catch {
       // Invalid signup

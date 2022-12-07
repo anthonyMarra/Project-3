@@ -1,4 +1,4 @@
-let Art = require("../../ models / art");
+let Art = require("../../models/art");
 
 module.exports = {
     create
