@@ -3,6 +3,7 @@ const Schema = mongoose.Schema;
 
 const artSchema = new Schema({
     artistID: { type: String, required: true },
+    artistName: { type: String, required: true },
     title: { type: String, required: true },
     art: [[{ type: String }]]
 }, {

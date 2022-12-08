@@ -48,8 +48,8 @@ function App() {
       <Routes>
         <Route path="/draw" element={<><Board board={board} penColor={penColor} setBoard={setBoard} /><ColorPicker board={board} setPenColor={setPenColor} setCol={setCol} setRow={setRow} col={col} row={row} user={user} setUpdateBoard={setUpdateBoard} /></>} />
         <Route path="/login" element={<AuthPage setUser={setUser} />} />
-        <Route path="/" element={<ArtBrowse boards={boards} />} />
-        <Route path="/*" element={<ArtBrowse boards={boards} />} />
+        <Route path="/" element={<ArtBrowse boards={boards} user={user} />} />
+        <Route path="/*" element={<ArtBrowse boards={boards} user={user} />} />
       </Routes>
     </>
   )

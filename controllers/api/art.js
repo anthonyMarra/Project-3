@@ -9,6 +9,7 @@ module.exports = {
 function create(req, res, next) {
     const art = new Art({ artistID: req.body.artistID, title: req.body.title })
     art.artistID = req.body.artistID
+    art.artistName = req.body.artistName
     art.art = req.body.art
     art.save()
         .then(function (art) {

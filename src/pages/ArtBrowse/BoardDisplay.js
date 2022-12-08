@@ -1,3 +1,4 @@
+import '../board/board.css';
 export default function BoardDisplay({ board }) {
     return (
         <>

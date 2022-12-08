@@ -21,7 +21,7 @@ function NavBar({ user, setUser }) {
             <a onClick={logOut}>Log Out</a>
         </nav>)
     }
-    return (
+    return (<>
         <nav>
             <Link to="/">Browse Art</Link>
             &nbsp; | &nbsp;
@@ -29,6 +29,8 @@ function NavBar({ user, setUser }) {
             &nbsp; | &nbsp;
             <Link to="/login">Log In</Link>
         </nav>
+        <h1>Log In/ Sign Up to Post Art, and Save other's Art to Your Collection</h1>
+    </>
     )
 }
 

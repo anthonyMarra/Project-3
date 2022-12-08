@@ -5,6 +5,7 @@ import { postArt } from '../../utilities/art-service';
 export default class CreateArt extends Component {
     state = {
         artistID: "",
+        artistName: "",
         title: "",
         art: ["white"],
     }
@@ -13,6 +14,7 @@ export default class CreateArt extends Component {
         try {
             const formData = {
                 artistID: this.props.user._id,
+                artistName: this.props.user.name,
                 title: this.state.title,
                 art: this.props.board,
             }
@@ -37,7 +39,6 @@ export default class CreateArt extends Component {
                 <>
 
                     <form autoComplete="off" onSubmit={this.handleSubmit} method="POST" action="/api/art">
-                        {/* slash in the above action ?*/}
                         <label>Art Piece Title:</label>
                         <input type="text" name="title" value={this.state.name} onChange={this.handleChange} required />
                         <button type="submit">Post Your Art Piece</button>

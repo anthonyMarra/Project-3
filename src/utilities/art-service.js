@@ -4,5 +4,5 @@ export async function postArt(formData) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
     });
-    console.log(res)
+    console.log("test" + res)
 }
