@@ -1,31 +1,38 @@
 import BoardDisplay from "./BoardDisplay"
-export default function ArtBrowse({ boards, user }) {
-    return (
-        <>
-            {boards?.map(function (board, y) {
-                y = y + 1
-                if (user && user._id === board.artistID) {
-                    return (<>
-                        <h2>Art Piece Title: {board.title}</h2>
-                        <h3>Artist's Name: {board.artistName}</h3>
-                        <BoardDisplay key={y} board={board} />
-                        <p>Insert Delete/ Update Button here</p>
-                        <hr></hr></>)
-                } else if (user) {
-                    return (<>
-                        <h2>Art Piece Title: {board.title}</h2>
-                        <h3>Artist's Name: {board.artistName}</h3>
-                        <BoardDisplay key={y} board={board} />
-                        <p>Insert Add to collection/ Like Button Here</p>
-                        <hr></hr></>)
-                } else {
-                    return (<>
-                        <h2>Art Piece Title: {board.title}</h2>
-                        <h3>Artist's Name: {board.artistName}</h3>
-                        <BoardDisplay key={y} board={board} />
-                        <hr></hr></>)
-                }
-            })}
-        </>
-    );
+import DeleteButton from "./DeleteButton";
+export default function ArtBrowse({ boards, user, setUpdateBoard }) {
+    console.log(boards.length)
+    if (boards.length !== 0) {
+        return (
+            <>
+                {boards?.map(function (board, y) {
+                    y = y + 1
+                    if (user && user._id === board.artistID) {
+                        return (<>
+                            <h2>Art Piece Title: {board.title}</h2>
+                            <h3>Artist's Name: {board.artistName}</h3>
+                            <BoardDisplay key={y} board={board} />
+                            <DeleteButton artID={board._id} setUpdateBoard={setUpdateBoard} />
+                            <p>Insert Delete/ Update Button here</p>
+                            <hr></hr></>)
+                    } else if (user) {
+                        return (<>
+                            <h2>Art Piece Title: {board.title}</h2>
+                            <h3>Artist's Name: {board.artistName}</h3>
+                            <BoardDisplay key={y} board={board} />
+                            <p>Insert Add to collection/ Like Button Here</p>
+                            <hr></hr></>)
+                    } else {
+                        return (<>
+                            <h2>Art Piece Title: {board.title}</h2>
+                            <h3>Artist's Name: {board.artistName}</h3>
+                            <BoardDisplay key={y} board={board} />
+                            <hr></hr></>)
+                    }
+                })}
+            </>
+        );
+    } else {
+        return (<h1>WHAATT!!! THERES NO ART!!!! YOU GOT TO LOGIN AND LIKE... CHANGE TAHT DUDE!!!!!</h1>)
+    }
 }

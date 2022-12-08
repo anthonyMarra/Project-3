@@ -37,8 +37,7 @@ export default class CreateArt extends Component {
         if (this.props.user) {
             return (
                 <>
-
-                    <form autoComplete="off" onSubmit={this.handleSubmit} method="POST" action="/api/art">
+                    <form autoComplete="off" onSubmit={this.handleSubmit}>
                         <label>Art Piece Title:</label>
                         <input type="text" name="title" value={this.state.name} onChange={this.handleChange} required />
                         <button type="submit">Post Your Art Piece</button>
