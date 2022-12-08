@@ -2,7 +2,7 @@ import './board.css';
 
 import { useRef, useEffect } from 'react';
 let mouseDown = false
-export default function UpdateBoard({ board, penColor, setBoard }) {
+export default function UpdateBoard({ board, penColor, setUpdateDatabase }) {
     // // let row = board.length
     // // let col = board[row - 1].length
     // // row = 500 / row

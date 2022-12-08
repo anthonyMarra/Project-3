@@ -8,7 +8,7 @@ export default class DeleteButton extends Component {
         try {
             console.log(this.props.artID)
             const art = await deleteArt(this.props.artID)
-            this.props.setUpdateBoard([this.props.artID])
+            this.props.setUpdateDatabase([this.props.artID])
         } catch {
             this.setState({
                 error: "Submitting Art Failed, Try Again"

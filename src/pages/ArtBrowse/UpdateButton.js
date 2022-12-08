@@ -3,7 +3,7 @@ import { updateArt } from '../../utilities/art-service';
 import { Link } from 'react-router-dom'
 
 
-export default function UpdateButton({ artID, setUpdateBoard }) {
+export default function UpdateButton({ artID }) {
     const link = "/update/" + artID
     return (
         <>

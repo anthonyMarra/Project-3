@@ -14,24 +14,10 @@ import UpdateBoard from '../board/UpdateBoard';
 function App() {
   console.log("refreshed app.js")
   const [user, setUser] = useState(getUser());
-  const [col, setCol] = useState(16);
-  const [row, setRow] = useState(16);
-  const [penColor, setPenColor] = useState("blue")
-  let boardProto = []
-  for (let y = 0; y < row; y++) {
-    boardProto.push([])
-    for (let x = 0; x < col; x++) {
-      boardProto[y].push("white")
-    }
-  }
-  const [board, setBoard] = useState(boardProto);
-  useEffect(() => {
-    setBoard(boardProto)
-  }, [col, row])
-
 
   const [boards, setBoards] = useState([])
-  const [updateBoard, setUpdateBoard] = useState([1])
+
+  const [updateDatabase, setUpdateDatabase] = useState([1])
   useEffect(() => {
     const fetchBoards = async () => {
       const res = await fetch("/api/art")
@@ -41,16 +27,16 @@ function App() {
       }
     }
     fetchBoards()
-  }, updateBoard)
+  }, updateDatabase)
 
   return (
     <>
       <NavBar user={user} setUser={setUser} />
       <Routes>
-        <Route path="/draw" element={<><Board board={board} penColor={penColor} setBoard={setBoard} /><ColorPicker board={board} setPenColor={setPenColor} setCol={setCol} setRow={setRow} col={col} row={row} user={user} setUpdateBoard={setUpdateBoard} /></>} />
+        <Route path="/draw" element={<Board setUpdateDatabase={setUpdateDatabase} user={user} />} />
         <Route path="/login" element={<AuthPage setUser={setUser} />} />
-        <Route path="/update/:id" element={<UpdateBoard boards={boards} user={user} setUpdateBoard={setUpdateBoard} />} />
-        <Route path="/" element={<ArtBrowse boards={boards} user={user} setUpdateBoard={setUpdateBoard} />} />
+        <Route path="/update/:id" element={<UpdateBoard boards={boards} user={user} setUpdateDatabase={setUpdateDatabase} />} />
+        <Route path="/" element={<ArtBrowse boards={boards} user={user} setUpdateDatabase={setUpdateDatabase} />} />
         <Route path="/*" element={<ArtBrowse boards={boards} user={user} />} />
       </Routes>
     </>
