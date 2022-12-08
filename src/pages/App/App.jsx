@@ -27,8 +27,18 @@ function App() {
   useEffect(() => {
     setBoard(boardProto)
   }, [col, row])
-  /*LOOK UP PROJECT 2 HOW YOU DID YOUR CRUD THERE
-  */
+  const [boards, setBoards] = useState([[[[["bla"]]]]])
+
+  useEffect(() => {
+    const fetchBoards = async () => {
+      const res = await fetch("/api/art")
+      const json = await res.json()
+      if (res.ok) {
+        setBoards(json)
+      }
+    }
+    fetchBoards()
+  }, [])
   return (
     <>
       <NavBar user={user} setUser={setUser} />
@@ -36,7 +46,7 @@ function App() {
         <Route path="/draw" element={<><Board board={board} penColor={penColor} setBoard={setBoard} /><ColorPicker board={board} setPenColor={setPenColor} setCol={setCol} setRow={setRow} col={col} row={row} user={user} /></>} />
         <Route path="/login" element={<AuthPage setUser={setUser} />} />
         <Route path="/" element={<ArtBrowse />} />
-        <Route path="/*" element={<ArtBrowse />} />
+        <Route path="/*" element={<ArtBrowse boards={boards} />} />
       </Routes>
     </>
   )

@@ -1,30 +1,17 @@
 let Art = require("../../models/art");
+const mongoose = require("mongoose")
 
 module.exports = {
-    create
+    create,
+    index
 };
 
-
-//user
-// async function create(req, res) {
-//     try {
-//         const art = await Art.create(req.body);
-//     } catch (err) {
-//         res.status(400).json(err);
-//     }
-// }
-
-//contracts
 function create(req, res, next) {
-    console.log("Started adding art to database")
     const art = new Art({ artistID: req.body.artistID, title: req.body.title })
-    console.log(req.body)
     art.artistID = req.body.artistID
     art.art = req.body.art
     art.save()
         .then(function (art) {
-            console.log(art)
-            console.log("I think art was saved!!!")
             return res.redirect("/")
         })
         .catch(function (err) {
@@ -34,32 +21,17 @@ function create(req, res, next) {
         })
 }
 
-//youtube
-// {
-//     // console.log("adding art to database")
-//     // const artistID = req.user
-//     // console.log(req.user)
-//     // console.log(req.body.user)
-//     // const title = req.body.title
-//     // console.log(req.body.title)
-//     // const art = req.body.art
-//     // console.log(req.body.art)
 
-//     // const newArt = new Art({
-//     //     artistID,
-//     //     title,
-//     //     art,
-//     // })
-
-//     // newArt.save()
-//     //     .then(() => res.json("Art Added!!!!"))
+// const index = async (req, res) => {
+//     const workouts = await Art.find({}).sort({ createdAt: -1 })
+//     res.status(200).json(workouts)
 // }
 
-// router.route("/").get((req, res) => {
-//     Art.find()
-//         .then(art => res.json(art))
-//         .catch(err => res.status(400).json("Error: " + err))
-// })
+function index(req, res, next) {
+    Art.find()
+        .then(art => res.json(art))
+        .catch(err => res.status(400).json("Error: " + err))
+}
 
 
 // router.route("/:id").get((req, res) => {

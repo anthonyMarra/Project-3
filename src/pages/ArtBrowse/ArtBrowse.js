@@ -1,5 +1,17 @@
-export default function ArtBrowse({ props }) {
+import BoardDisplay from "./BoardDisplay"
+export default function ArtBrowse({ boards }) {
     return (
-        <h1>PlaceHolder For Displaying Art</h1>
+        <>
+            <p>worked</p>
+            {console.log(boards)}
+            {boards?.map(function (board, y) {
+                y = y + 1
+                return (<>
+                    <p>worked 2</p>
+                    <BoardDisplay key={y} board={board} />
+                </>
+                )
+            })}
+        </>
     );
 }

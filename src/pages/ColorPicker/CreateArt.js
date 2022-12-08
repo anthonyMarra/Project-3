@@ -6,7 +6,7 @@ export default class CreateArt extends Component {
     state = {
         artistID: "",
         title: "",
-        // art: ["white"],
+        art: ["white"],
     }
     handleSubmit = async (evt) => {
         evt.preventDefault()
@@ -18,8 +18,7 @@ export default class CreateArt extends Component {
             }
             console.log(formData)
             const art = await postArt(formData);
-            console.log("hypothetically created in database")
-            // window.location = "/"
+            window.location = "/"
         } catch {
             this.setState({
                 error: "Submitting Art Failed, Try Again"
