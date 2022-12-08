@@ -16,8 +16,8 @@ export default class CreateArt extends Component {
                 title: this.state.title,
                 art: this.props.board,
             }
-            console.log(formData)
             const art = await postArt(formData);
+            this.props.setUpdateBoard(this.props.board)
             window.location = "/"
         } catch {
             this.setState({
@@ -32,15 +32,18 @@ export default class CreateArt extends Component {
         });
     }
     render() {
-        return (
-            <>
-                <form autoComplete="off" onSubmit={this.handleSubmit} method="POST" action="/api/art">
-                    {/* slash in the above action ?*/}
-                    <label>Art Piece Title:</label>
-                    <input type="text" name="title" value={this.state.name} onChange={this.handleChange} required />
-                    <button type="submit">Post Your Art Piece</button>
-                </form>
-            </>
-        )
+        if (this.props.user) {
+            return (
+                <>
+
+                    <form autoComplete="off" onSubmit={this.handleSubmit} method="POST" action="/api/art">
+                        {/* slash in the above action ?*/}
+                        <label>Art Piece Title:</label>
+                        <input type="text" name="title" value={this.state.name} onChange={this.handleChange} required />
+                        <button type="submit">Post Your Art Piece</button>
+                    </form>
+                </>
+            )
+        }
     }
 }

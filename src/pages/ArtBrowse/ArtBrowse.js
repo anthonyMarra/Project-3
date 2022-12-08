@@ -2,12 +2,11 @@ import BoardDisplay from "./BoardDisplay"
 export default function ArtBrowse({ boards }) {
     return (
         <>
-            <p>worked</p>
-            {console.log(boards)}
             {boards?.map(function (board, y) {
                 y = y + 1
                 return (<>
-                    <p>worked 2</p>
+                    <h2>{board.title}</h2>
+                    <h3>{board.artistID}</h3>
                     <BoardDisplay key={y} board={board} />
                 </>
                 )

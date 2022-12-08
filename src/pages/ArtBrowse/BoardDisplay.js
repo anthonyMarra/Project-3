@@ -2,7 +2,7 @@ export default function BoardDisplay({ board }) {
     return (
         <>
             <div className="Board">
-                {board.map(function (row, y) {
+                {board.art.map(function (row, y) {
                     y = y + 1
                     return (<div key={y}>
                         {row.map(function (color, x) {
