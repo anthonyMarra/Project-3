@@ -1,7 +1,7 @@
 import BoardDisplay from "./BoardDisplay"
 import DeleteButton from "./DeleteButton"
 import UpdateButton from "./UpdateButton"
-export default function ArtBrowse({ boards, user, setUpdateDatabase }) {
+export default function ArtBrowse({ boards, user, setUpdateDatabase, setUpdateID }) {
     return (
         <>
             {boards?.map(function (board, y) {
@@ -12,7 +12,7 @@ export default function ArtBrowse({ boards, user, setUpdateDatabase }) {
                         <h3>Artist's Name: {board.artistName}</h3>
                         <BoardDisplay key={y} board={board} />
                         <DeleteButton artID={board._id} setUpdateDatabase={setUpdateDatabase} />
-                        <UpdateButton artID={board._id} />
+                        <UpdateButton artID={board._id} setUpdateID={setUpdateID} />
                         <hr></hr></>)
                 }
                 // else if (user) {

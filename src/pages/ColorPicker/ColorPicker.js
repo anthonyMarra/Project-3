@@ -3,9 +3,11 @@ import CreateArt from "./CreateArt";
 import './ColorPicker.css';
 
 
-export default function ColorPicker({ setPenColor, setCol, setRow, col, row, user, board, setUpdateBoard }) {
+export default function ColorPicker({ setPenColor, setCol, setRow, col, row, user, board, setUpdateDatabase }) {
+
     const [newCol, setNewCol] = useState(col)
     const [newRow, setNewRow] = useState(row)
+
     function handleColorChange(evt) {
         setPenColor(evt.target.value)
     }
@@ -47,7 +49,7 @@ export default function ColorPicker({ setPenColor, setCol, setRow, col, row, use
                     <option value="black">black</option>
                 </select>
             </form>
-            <CreateArt user={user} board={board} setUpdateBoard={setUpdateBoard} />
+            <CreateArt user={user} board={board} setUpdateDatabase={setUpdateDatabase} />
         </>
     )
 }

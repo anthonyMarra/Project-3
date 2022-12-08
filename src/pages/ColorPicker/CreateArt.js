@@ -19,7 +19,7 @@ export default class CreateArt extends Component {
                 art: this.props.board,
             }
             const art = await postArt(formData);
-            this.props.setUpdateBoard(this.props.board)
+            this.props.setUpdateDatabase(this.props.board)
             window.location = "/"
         } catch {
             this.setState({

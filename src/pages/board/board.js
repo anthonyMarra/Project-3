@@ -9,7 +9,7 @@ let leftMouseDown = false
 
 export default function Board({ user, setUpdateDatabase }) {
 
-    const [penColor, setpenColor] = useState("blue")
+    const [penColor, setPenColor] = useState("blue")
 
     const [col, setCol] = useState(16);
     const [row, setRow] = useState(16);
@@ -61,6 +61,9 @@ export default function Board({ user, setUpdateDatabase }) {
         }
     }
     function bucket(box, penColor, colorChanging) {
+
+        //trying to get MVP so havent worked on this in a while
+
         if (colorChanging == undefined) {
             colorChanging = box.target.className.split(' ').pop();
         }
@@ -72,7 +75,7 @@ export default function Board({ user, setUpdateDatabase }) {
         x = x[1]
         board[y - 1][x - 1] = penColor
         if (board[y - 1][x] == colorChanging) {
-            board[y - 1][x] = penColor
+            // board[y - 1][x] = penColor
         }
         setBoard(board)
     }
@@ -115,7 +118,7 @@ export default function Board({ user, setUpdateDatabase }) {
                     </div>)
                 })}
             </div>
-            <ColorPicker board={board} setpenColor={setpenColor} setCol={setCol} setRow={setRow} col={col} row={row} user={user} setUpdateDatabase={setUpdateDatabase} />
+            <ColorPicker board={board} setPenColor={setPenColor} setCol={setCol} setRow={setRow} col={col} row={row} user={user} setUpdateDatabase={setUpdateDatabase} />
         </>
     );
 }
