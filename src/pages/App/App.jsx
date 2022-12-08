@@ -9,6 +9,7 @@ import './App.css';
 import Board from '../board/board';
 import ColorPicker from '../ColorPicker/ColorPicker';
 import ArtBrowse from '../ArtBrowse/ArtBrowse';
+import UpdateBoard from '../board/UpdateBoard';
 
 function App() {
   console.log("refreshed app.js")
@@ -48,6 +49,7 @@ function App() {
       <Routes>
         <Route path="/draw" element={<><Board board={board} penColor={penColor} setBoard={setBoard} /><ColorPicker board={board} setPenColor={setPenColor} setCol={setCol} setRow={setRow} col={col} row={row} user={user} setUpdateBoard={setUpdateBoard} /></>} />
         <Route path="/login" element={<AuthPage setUser={setUser} />} />
+        <Route path="/update/:id" element={<UpdateBoard boards={boards} user={user} setUpdateBoard={setUpdateBoard} />} />
         <Route path="/" element={<ArtBrowse boards={boards} user={user} setUpdateBoard={setUpdateBoard} />} />
         <Route path="/*" element={<ArtBrowse boards={boards} user={user} />} />
       </Routes>

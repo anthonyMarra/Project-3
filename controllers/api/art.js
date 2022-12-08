@@ -4,7 +4,8 @@ const mongoose = require("mongoose")
 module.exports = {
     create,
     index,
-    delete: deleteArt
+    delete: deleteArt,
+    update
 };
 
 function create(req, res, next) {
@@ -35,19 +36,18 @@ function deleteArt(req, res, next) {
         .catch(err => res.staus(400).json("Error: " + err))
 }
 
+function update(req, res, next) {
+    Art.findById(req.params.id)
+        .then(art => {
+            art.title = req.body.title
+            art.art = req.body.art
+            art.save()
+                .then(() => res.json("art updated!"))
+                .catch(err => res.status(400).json("Error: " + err))
+        })
+        .catch(err => res.status(400).json("Error: " + err))
+}
 
-// router.route("update/:id").post((req, res) => {
-//     Art.findById(req.params.id)
-//         .then(art => {
-//             art.title = req.body.title
-//             art.art = req.body.art
-
-//             art.save()
-//                 .then(() => res.json("art updated!"))
-//                 .catch(err => res.status(400).json("Error: " + err))
-//         })
-//         .catch(err => res.status(400).json("Error: " + err))
-// })
 
 
 // router.route("/:id").get((req, res) => {
