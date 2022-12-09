@@ -11,7 +11,12 @@ require('./config/database');
 
 const app = express();
 
-app.use(cors())
+var corsOptions = {
+  origin: "https://anthonyMarra.github.io",
+  optionSuccessStaus: 200,
+}
+
+app.use(cors(corsOptions))
 
 app.use(logger('dev'));
 // Process data in body of request if 
