@@ -13,7 +13,6 @@ export async function deleteArt(id) {
         method: 'DELETE'
     });
     console.log("delete Test" + res)
-    console.log('/api/art/' + id)
 }
 
 export async function updateArt(formData, id) {

@@ -1,10 +1,18 @@
 # Planning Docs for MS Paint Clone
 
+## Screen Shots
+![discover](./screenshots/MS_PaintClone_SignUp_Page.png)
+![discover](./screenshots/MS_PaintClone_Login_Page.png)
+![discover](./screenshots/MS_PaintClone_Draw.png)
+![discover](./screenshots/MS_PaintClone_Browse_Own_Work.png)
+![discover](./screenshots/MS_PaintClone_Updated_Art.png)
+
+
 ## Link to ERD: 
 https://lucid.app/lucidchart/195e0f90-308f-4b0b-874c-733317d91780/edit?viewport_loc=-229%2C248%2C1350%2C616%2C0_0&invitationId=inv_97199d04-6f93-4f23-bae8-2be2b7e4b5c4
 
 One user can have many drawings, but each drawing only has one creator
-One user can have many favorites drawings, and each drawing can in be many user's favorite collection.
+One user can have many favorites drawings, and each drawing can be in many user's favorite collection.
 
 ![discover](./screenshots/ERD_MS_PAINT.png)
 

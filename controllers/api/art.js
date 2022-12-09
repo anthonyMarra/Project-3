@@ -33,7 +33,7 @@ function index(req, res, next) {
 function deleteArt(req, res, next) {
     Art.findByIdAndDelete(req.params.id)
         .then(() => res.json("art deleted."))
-        .catch(err => res.staus(400).json("Error: " + err))
+        .catch(err => res.status(400).json("Error: " + err))
 }
 
 function update(req, res, next) {
