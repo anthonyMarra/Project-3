@@ -1,13 +1,16 @@
 // API modules are where the code lives to communicate
 // with the server via AJAX
 
+const herokuUrl = "https://agile-cliffs-15245.herokuapp.com"
+
+const apiUrl = process.env.DEVELOPMENT ? url : herokuUrl + url
 const BASE_URL = '/api/users';
 
 export async function signUp(userData) {
   // Fetch uses an options object as a second arg to make
   // requests other than GET and/or send data and/or set headers
   console.log(userData)
-  const res = await fetch(BASE_URL, {
+  const res = await fetch(apiUrl, {
     method: 'POST',
     // MIME type of application/json
     headers: { 'Content-Type': 'application/json' },
@@ -25,7 +28,7 @@ export async function signUp(userData) {
 export async function login(credentials) {
   // Fetch uses an options object as a second arg to make
   // requests other than GET and/or send data and/or set headers
-  const res = await fetch(`${BASE_URL}/login`, {
+  const res = await fetch(`${apiUrl}/login`, {
     method: 'POST',
     // MIME type of application/json
     headers: { 'Content-Type': 'application/json' },

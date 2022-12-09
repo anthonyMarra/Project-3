@@ -1,6 +1,6 @@
 import './board.css';
 import { useState } from 'react';
-import ColorPicker from '../ColorPicker/ColorPicker';
+import ColorPickerUpdate from '../ColorPicker/ColorPickerUpdate';
 import { useRef, useEffect } from 'react';
 
 let rightMouseDown = false
@@ -10,10 +10,7 @@ export default function UpdateBoard({ boards, user, setUpdateDatabase, updateID 
 
     const [penColor, setpenColor] = useState("blue")
 
-    // const [col, setCol] = useState(boardProto.length);
-    // const [row, setRow] = useState(16);
-
-    let boardProto = []
+    let boardProto = ["white", "blue"]
     // for (let y = 0; y < row; y++) {
     //     boardProto.push([])
     //     for (let x = 0; x < col; x++) {
@@ -21,7 +18,6 @@ export default function UpdateBoard({ boards, user, setUpdateDatabase, updateID 
     //     }
     // }
     console.log("in update")
-
     for (let i = 0; i < boards.length; i++) {
         if (boards[i]._id == updateID) {
             boardProto = boards[i]
@@ -130,7 +126,7 @@ export default function UpdateBoard({ boards, user, setUpdateDatabase, updateID 
                     </div>)
                 })}
             </div>
-            {/* <ColorPicker board={board} setpenColor={setpenColor} setCol={setCol} setRow={setRow} col={col} row={row} user={user} setUpdateDatabase={setUpdateDatabase} /> */}
+            <ColorPickerUpdate board={board} setpenColor={setpenColor} user={user} setUpdateDatabase={setUpdateDatabase} />
         </>
     );
 }
