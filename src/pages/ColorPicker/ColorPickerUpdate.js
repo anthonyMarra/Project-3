@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react"
-import CreateArt from "./CreateArt";
 import './ColorPicker.css';
+import UpdateArt from "./UpdateArt";
 
 
-export default function ColorPickerUpdate({ setPenColor, user, board, setUpdateDatabase }) {
+export default function ColorPickerUpdate({ setPenColor, user, board, setUpdateDatabase, updateID }) {
 
     function handleColorChange(evt) {
         setPenColor(evt.target.value)
+        console.log(evt.target.value)
     }
 
     return (
@@ -23,7 +24,7 @@ export default function ColorPickerUpdate({ setPenColor, user, board, setUpdateD
                     <option value="black">black</option>
                 </select>
             </form>
-            <CreateArt user={user} board={board} setUpdateDatabase={setUpdateDatabase} />
+            <UpdateArt user={user} board={board} setUpdateDatabase={setUpdateDatabase} updateID={updateID} />
         </>
     )
 }

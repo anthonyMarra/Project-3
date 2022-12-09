@@ -53,10 +53,10 @@ export default function Board({ user, setUpdateDatabase }) {
                     break;
             }
         })
-        if (rightMouseDown) {
+        if (rightMouseDown && box != undefined) {
             erase(box)
         }
-        if (leftMouseDown) {
+        if (leftMouseDown && box != undefined) {
             paintSquare(box)
         }
     }
@@ -81,17 +81,21 @@ export default function Board({ user, setUpdateDatabase }) {
     }
 
     function paintSquare(box) {
-        const currentColor = box.target.className.split(' ').pop();
-        box.target.classList.remove(currentColor)
-        box.target.className = box.target.className + " " + penColor
-        updateBoard(box, penColor)
+        window.onmouseover = (function (evt) {
+            const currentColor = box.target.className.split(' ').pop();
+            box.target.classList.remove(currentColor)
+            box.target.className = box.target.className + " " + penColor
+            updateBoard(box, penColor)
+        })
     }
 
     function erase(box) {
-        const currentColor = box.target.className.split(' ').pop();
-        box.target.classList.remove(currentColor)
-        box.target.className = box.target.className + " white"
-        updateBoard(box, "white")
+        window.onmouseover = (function (evt) {
+            const currentColor = box.target.className.split(' ').pop();
+            box.target.classList.remove(currentColor)
+            box.target.className = box.target.className + " white"
+            updateBoard(box, "white")
+        })
     }
 
     function updateBoard(box, color) {

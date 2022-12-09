@@ -18,8 +18,8 @@ export default class UpdateArt extends Component {
                 title: this.state.title,
                 art: this.props.board,
             }
-            const art = await updateArt(formData);
-            this.props.setUpdateDatabase(this.props.board)
+            const art = await updateArt(formData, this.props.updateID);
+            this.props.setUpdateDatabase([5])
             window.location = "/"
         } catch {
             this.setState({
@@ -40,7 +40,7 @@ export default class UpdateArt extends Component {
                     <form autoComplete="off" onSubmit={this.handleSubmit}>
                         <label>Art Piece Title:</label>
                         <input type="text" name="title" value={this.state.name} onChange={this.handleChange} required />
-                        <button type="submit">Post Your Art Piece</button>
+                        <button type="submit">Update Your Art Piece</button>
                     </form>
                 </>
             )

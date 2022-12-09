@@ -6,7 +6,10 @@
 // Import all named exports
 import * as usersAPI from './users-api';
 
+
 const herokuUrl = "https://agile-cliffs-15245.herokuapp.com/"
+
+// const apiUrl = process.env.DEVELOPMENT ? url : herokuUrl + url
 
 export async function signUp(userData) {
   // Delegate the AJAX request to the users-api.js

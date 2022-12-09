@@ -49,7 +49,6 @@ function update(req, res, next) {
 }
 
 
-
 // router.route("/:id").get((req, res) => {
 //     Art.findById(req.params.id)
 //         .then(art => res.json(art))

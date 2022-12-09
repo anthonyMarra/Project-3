@@ -16,9 +16,9 @@ export async function deleteArt(id) {
     console.log('/api/art/' + id)
 }
 
-export async function updateArt(formData) {
-    const res = await fetch('/api/art', {
-        method: 'POST',
+export async function updateArt(formData, id) {
+    const res = await fetch('/api/art/update/' + id, {
+        method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
     });

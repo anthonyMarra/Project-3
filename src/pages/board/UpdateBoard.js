@@ -8,31 +8,31 @@ let leftMouseDown = false
 
 export default function UpdateBoard({ boards, user, setUpdateDatabase, updateID }) {
 
-    const [penColor, setpenColor] = useState("blue")
+    const [penColor, setPenColor] = useState("blue")
 
-    let boardProto = ["white", "blue"]
+    let currentBoard = ["white", "blue"]
     // for (let y = 0; y < row; y++) {
-    //     boardProto.push([])
+    //     currentBoard.push([])
     //     for (let x = 0; x < col; x++) {
-    //         boardProto[y].push("white")
+    //         currentBoard[y].push("white")
     //     }
     // }
     console.log("in update")
     for (let i = 0; i < boards.length; i++) {
         if (boards[i]._id == updateID) {
-            boardProto = boards[i]
+            currentBoard = boards[i]
         }
     }
-    console.log("test" + boardProto)
+    console.log("test" + currentBoard)
 
 
 
 
 
-    const [board, setBoard] = useState(boardProto.art);
+    const [board, setBoard] = useState(currentBoard.art);
 
     // useEffect(() => {
-    //     setBoard(boardProto)
+    //     setBoard(currentBoard)
     // }, [col, row])
 
     function whichOP(box) {
@@ -126,7 +126,7 @@ export default function UpdateBoard({ boards, user, setUpdateDatabase, updateID 
                     </div>)
                 })}
             </div>
-            <ColorPickerUpdate board={board} setpenColor={setpenColor} user={user} setUpdateDatabase={setUpdateDatabase} />
+            <ColorPickerUpdate board={board} setPenColor={setPenColor} user={user} setUpdateDatabase={setUpdateDatabase} updateID={updateID} />
         </>
     );
 }
